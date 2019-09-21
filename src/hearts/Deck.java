@@ -10,7 +10,10 @@ public class Deck {
 	private Suits suit;
 	private int cardValue;
 	//	private Cards value;			// DONT NEED? SEE getRank() ***************
-	
+
+	// private final int ZERO		// GIT PRACTICE!!!!!!!!!!
+
+
 	/*
 	 * Constructor
 	 * @rank - rank of card
