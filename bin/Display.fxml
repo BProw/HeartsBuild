@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="450.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView id="2Club" fitHeight="150.0" fitWidth="100.0" layoutX="18.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../BProw%201/Desktop/Hearts%20Game/cards/2c.gif" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>
