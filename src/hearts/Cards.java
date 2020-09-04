@@ -32,8 +32,8 @@ public enum Cards {
 	}
 	
 	/**
-	 *  Return card rank.
-	 * @return
+	 * 
+	 * @return rank of this card
 	 */
 	public int getRank() {
 		return rank;

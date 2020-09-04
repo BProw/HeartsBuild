@@ -11,18 +11,42 @@ public class Player {
 
            *******   CREATE JUNIT TEST FILE TO STREAMLINE/ORGANIZE    *********
     */
+
+    /**
+     * Set player name.
+     * @param name
+     */
     public void setName(String name) {
         this.playerName = name;
     }
+
+    /**
+     * Return the name of this player.
+     * @return playername
+     */
     public String getName() {
         return this.playerName;
     }
-    public void setHand(Deck hand1) {
-        hand.add(hand1);
+
+    /**
+     * Set player's card hand.
+     * @param dealtHand cards dealt to player
+     */
+    public void setHand(Deck dealtHand) {
+        hand.add(dealtHand);
     }
+    
+    /**
+     * @return this player's cards.
+     */
     public ArrayList<Deck> getHand(){
         return hand;
     }
+
+    /**
+     *  Ensure players have correct # of cards in hand.
+     * @return player hand size
+     */
     public int playerHandSize() {
         return this.hand.size();
     }
