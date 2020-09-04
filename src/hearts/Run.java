@@ -56,7 +56,7 @@ public class Run {
 
 		// Deal cards to each player. Shuffle each pass.
 		for (int i = 0; i < cards.size(); i++) { 
-			Collections.shuffle(cards);
+			
 			if (i < 13) {
 				player1.setHand(cards.get(i));
 			} else if (i >= 13 && i < 26) {
@@ -70,35 +70,35 @@ public class Run {
 		}
 
 		Iterator it = player2.getHand().iterator();
-		while (it.hasNext()) {
-			System.out.println(it.next());
-		}
+		// while (it.hasNext()) {
+		// 	System.out.println(it.next());
+		// }
 	
 		// TEST EQUALITY OF player card hands.
 		// System.out.println(player1.getHand().equals(player2.getHand()));
 		
 		// Test player card hand sizes. Expected 13 each.
-		System.out.println("p1: " + player1.getHand().size() + "\np2: " + player2.getHand().size());
-		System.out.println("p3: " + player3.getHand().size() + "\np4: " + player4.getHand().size());
+		//	System.out.println("p1: " + player1.getHand().size() + "\np2: " + player2.getHand().size());
+		//	System.out.println("p3: " + player3.getHand().size() + "\np4: " + player4.getHand().size());
 
 
 		// Test player name, random card rank from each hand, 
-		System.out.println("\nPlayer1 Name: " + player1.getName() + "\n\tRandom card RANK: "
-				+ player1.getHand().get(3).getCardValue() + "\n\t\tHand size: " + player1.playerHandSize());
+		System.out.println("\nPlayer1 Name: " + player1.getName() + "\n\tRandom card in hand: "
+				+ player1.getHand().get(3) + "\n\t\tHand size: " + player1.playerHandSize());
 
-		System.out.println("\nPlayer2 Name: " + player2.getName() + "\n\tRandom card RANK: "
-				+ player2.getHand().get(3).getCardValue() + "\n\t\tHand size: " + player2.playerHandSize());
+		System.out.println("\nPlayer2 Name: " + player2.getName() + "\n\tRandom card in hand: "
+				+ player2.getHand().get(3) + "\n\t\tHand size: " + player2.playerHandSize());
 
-		System.out.println("\nPlayer3 Name: " + player3.getName() + "\n\tRandom card RANK: "
-				+ player3.getHand().get(3).getCardValue() + "\n\t\tHand size: " + player3.playerHandSize());
+		System.out.println("\nPlayer3 Name: " + player3.getName() + "\n\tRandom card in hand: "
+				+ player3.getHand().get(3) + "\n\t\tHand size: " + player3.playerHandSize());
 
-		System.out.println("\nPlayer4 Name: " + player4.getName() + "\n\tRandom card RANK: "
-				+ player4.getHand().get(3).getCardValue() + "\n\t\tHand size: " + player4.playerHandSize());
+		System.out.println("\nPlayer4 Name: " + player4.getName() + "\n\tRandom card in hand: "
+				+ player4.getHand().get(3) + "\n\t\tHand size: " + player4.playerHandSize());
 
 	
 		// Random card in card deck.
 		Random rand = new Random();
-		System.out.println("\nRandom card: " + cards.get(rand.nextInt(52)));
+		//System.out.println("\nRandom card: " + cards.get(rand.nextInt(52)));
 	}
 
 }
