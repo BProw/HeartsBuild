@@ -1,5 +1,4 @@
 package hearts;
-
 /**
  * 
  *  @author BProw
@@ -11,7 +10,7 @@ public class Deck {
 	private int cardValue;
 	//	private Cards value;			// DONT NEED? SEE getRank() ***************
 
-	// private final int ZERO		// GIT PRACTICE!!!!!!!!!!
+	// private final int ZERO			// GIT PRACTICE!!!!!!!!!!
 
 
 	/*
