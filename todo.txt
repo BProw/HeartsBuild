@@ -1,4 +1,5 @@
 TODO:
 
-Get gameplay working
-Add additional files to github
+Create unit test file 
+Constructor in Player - force user to enter a valid name
+Gameplay
