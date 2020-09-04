@@ -50,7 +50,7 @@ public class Run {
 		Player player4 = new Player();
 
 		player1.setName("BProw"); // Set Player name
-		player2.setName("Brian");
+		player2.setName("Seaner");
 		player3.setName("Tanner");
 		player4.setName("Adoree");
 
