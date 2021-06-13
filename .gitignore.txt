@@ -1,0 +1,5 @@
+**/.DS_Store
+**/bin/.DS_Store
+**/junit5-r5.6.2/
+**/hearts/.DS_Store
+**/hearts/tempCodeRunnerFile.java
