@@ -56,6 +56,8 @@ public class Run {
 		findTwoClubs(player3);
 		findTwoClubs(player4);
 
+		gameplay();
+
 	}
 
 	/**
@@ -112,7 +114,7 @@ public class Run {
 	 * @param cards
 	 * @return
 	 */
-	public static int findTwoClubs(Player playerCards) {
+	static void findTwoClubs(Player playerCards) {
 		Deck twoClubs = new Deck(Cards.TWO, Suits.CLUBS);
 		// System.out.println(cards.get(1).toString().equals(twoClubs.toString()));
 
@@ -122,8 +124,14 @@ public class Run {
 				System.out.println("2 CLUBS ---> " + playerCards.getName());
 			}
 		}
-		System.out.println("");
-		return 0;
 	}
+
+	/**
+	 *  Initial game logic 6.13.21 
+	 */
+	public static void gameplay() {
+		
+	}
+
 
 }
