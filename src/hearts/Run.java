@@ -10,98 +10,120 @@ import java.io.PrintWriter;
 
 /**
  * 
- * TEST CLASS WITH MAIN TO TEST ENUMS AND CARD CLASSES.
+ * CLASS WITH MAIN TO TEST ENUMS AND CARD CLASSES.
  * 
  * @author BProw
- * @version 1
+ * @version 2
  */
 public class Run {
+	// Card Deck, from Deck class.
+	public static ArrayList<Deck> cards = new ArrayList<Deck>();
+
+	public static Player player1 = new Player();
+	public static Player player2 = new Player();
+	public static Player player3 = new Player();
+	public static Player player4 = new Player();
 
 	public static void main(String[] args) {
-		PrintWriter pw = new PrintWriter(System.out, true);
-		String aa = "\uD83C\uDCDD";
-		// pw.println("aa= " + aa);
 
-		// Object[] possibleValues = Cards.getDeclaringClass().getEnumConstants();
-
-		// Cards.class.getEnumConstants();
-
-		// List of Rank enum, TWO through ACE.
-		// ArrayList<Rank> cardRanks =
-		// new ArrayList<Rank>(EnumSet.allOf(Rank.class));
-
-		// List of Suits enum, HEART, DIAMOND, SPADE, and CLUB
-		// ArrayList<Suits> suits = new ArrayList<Suits>(EnumSet.allOf(Suits.class));
-
-		// Card Deck, from Deck class.
-		ArrayList<Deck> cards = new ArrayList<Deck>();
-		ArrayList<Suits> suits = new ArrayList<Suits>();
-
+		// Create card deck of 52 cards, 13 of each suit.
 		for (Cards ra : Cards.values()) {
 			for (Suits s : Suits.values()) {
 				cards.add(new Deck(ra, s));
+
 			}
 		}
 
-		// 4 players
-		Player player1 = new Player();
-		Player player2 = new Player();
-		Player player3 = new Player();
-		Player player4 = new Player();
-
-		player1.setName("BProw"); // Set Player name
+		player1.setName("BProw");
 		player2.setName("Seaner");
 		player3.setName("Tanner");
 		player4.setName("Adoree");
 
-		// Player p1 = new Player();
+		// Number of cards per player (always = 13) testing***
+		// int cardsPerPlayer = cards.size() / 4;
 
-		for (int i = 0; i < cards.size(); i++) { // Take 13 cards from Deck, shuffle each pass.
-			// player1.add(cards.get(i));
+		dealCards();
+
+		// Display Player cards (testing).
+		iteratePlayerHand(player1);
+		iteratePlayerHand(player2);
+		iteratePlayerHand(player3);
+		iteratePlayerHand(player4);
+
+		// Determine which player leadsoff the game round..
+		findTwoClubs(player1);
+		findTwoClubs(player2);
+		findTwoClubs(player3);
+		findTwoClubs(player4);
+
+	}
+
+	/**
+	 * Deal 13 cards to each player, remove dealt card from deck, shuffle --- SLOPPY
+	 * implementation, needs additional testing 06.13.21 ******
+	 */
+	static void dealCards() {
+		ArrayList<Deck> cards1 = cards;
+
+		for (int i = 0; i < cards.size(); i++) {
+			Collections.shuffle(cards);
 			if (i < 13) {
-				player1.setHand(cards.get(i));
-			} else if (i >= 13 && i < 26) {
-				player2.setHand(cards.get(i));
-			} else if (i >= 26 && i < 39) {
-				player3.setHand((cards.get(i)));
-			} else {
-				player4.setHand((cards.get(i)));
+				player1.setHand(cards1.get(i));
+				cards1.remove(cards.get(i));
+			} else if (i > 13 && i <= 26) {
+				player2.setHand(cards1.get(i));
+				cards1.remove(cards.get(i));
 			}
 			Collections.shuffle(cards);
 		}
 
-		Iterator it = player2.getHand().iterator();
+		for (int i = 0; i < cards1.size(); i++) {
+			Collections.shuffle(cards);
+			player3.setHand(cards1.get(i));
+			cards1.remove(cards.get(i));
+
+		}
+
+		for (int i = 0; i < cards1.size(); i++) {
+			player4.setHand(cards.get(i));
+			// cards1.remove(cards.get(i));
+		}
+	}
+
+	/**
+	 * Display the 13 Player cards.
+	 * 
+	 * @param player
+	 */
+	static void iteratePlayerHand(Player player) {
+		Iterator it = player.getHand().iterator();
+		System.out.println(player.getName());
+
 		while (it.hasNext()) {
 			System.out.println(it.next());
 		}
-		System.out.println("p1: " + player1.getHand().size() + "\np2: " + player2.getHand().size());
-		System.out.println("p3: " + player3.getHand().size() + "\np4: " + player4.getHand().size());
-		// TEST EQUALITY OF player card hands.
-		// System.out.println(player1.getHand().equals(player2.getHand()));
+		System.out.println();
+	}
 
-		System.out.println("\nPlayer1 Name: " + player1.getName() + "\n\tRandom CARD RANK: "
-				+ player1.getHand().get(3).getCardValue() + "\n\t\tHand size: " + player1.playerHandSize());
+	/**
+	 * // Compare rank and suit in each player hand to find TWO CLUBS
+	 * 
+	 * @param playerCards
+	 * @param cards
+	 * @return
+	 */
+	public static int findTwoClubs(Player playerCards) {
+		Deck twoClubs = new Deck(Cards.TWO, Suits.CLUBS);
+		// System.out.println(cards.get(1).toString().equals(twoClubs.toString()));
 
-		System.out.println("\nPlayer2 NAME: " + player2.getName() + "\n\tRandom CARD RANK: "
-				+ player2.getHand().get(3).getCardValue() + "\n\t\tHand size: " + player2.playerHandSize());
+		for (int i = 0; i < playerCards.getHand().size(); i++) {
 
-		// System.out.println(cards.get(44) + " Card value: " +
-		// cards.get(44).getRank());
-
-		int count = 0; // # of cards in deck.
-
-		for (Deck c : cards) {
-			if (c.getSuit() == Suits.HEARTS) {
-
-				count++;
+			if (playerCards.getHand().get(i).toString().equals(twoClubs.toString())) {
+				System.out.println("2 CLUBS ---> " + playerCards.getName());
 			}
 		}
-
-		// System.out.println("# of HEARTS in card deck: " + count);
-
-		Random rand = new Random();
-
-		// System.out.println("\nRandom card: " + cards.get(rand.nextInt(52)));
+		System.out.println("");
+		return 0;
 	}
 
 }
