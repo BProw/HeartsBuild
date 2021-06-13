@@ -1,16 +1,15 @@
 package hearts;
 
 import java.util.ArrayList;
-
+import java.util.Collections;
+/**
+ * 
+ * @author BProw
+ * @version 2
+ */
 public class Player {
     private String playerName;
     private ArrayList<Deck> hand = new ArrayList<Deck>();
-
-    /*
-        ********* SET NAME TIN CONSTRUCTOR TO FORCE USER TO SET NAME ********
-
-           *******   CREATE JUNIT TEST FILE TO STREAMLINE/ORGANIZE    *********
-    */
 
     /**
      * Set player name.
@@ -30,10 +29,10 @@ public class Player {
 
     /**
      * Set player's card hand.
-     * @param dealtHand cards dealt to player
+     * @param card cards dealt to player
      */
-    public void setHand(Deck dealtHand) {
-        hand.add(dealtHand);
+    public void setHand(Deck card) {
+        hand.add( card);
     }
     
     /**
@@ -50,4 +49,7 @@ public class Player {
     public int playerHandSize() {
         return this.hand.size();
     }
+
+
+
 }

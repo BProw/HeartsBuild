@@ -2,7 +2,7 @@ package hearts;
 /**
  * 
  *  @author BProw
- *	@version 1
+ *	@version 2
  */
 public class Deck {
 	private Cards rank;
@@ -22,11 +22,12 @@ public class Deck {
 	}
 	
 	/**
-	 * 
-	 * @return value of this card
+	 *  Return card rank & suit as String.
+	 * @return rank and suit of this card
 	 */
-	public int getCardValue() {
-		return rank.getRank();
+	public String getCardValue() {
+		
+		return rank.getRank() + " " + suit.getSuit();
 	}
 
 	/**
